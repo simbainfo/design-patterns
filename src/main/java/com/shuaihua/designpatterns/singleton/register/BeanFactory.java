@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  */
 
-//注册时单例 spring采用的单例模式
+//注册式单例 spring采用的单例模式
 public class BeanFactory {
 
 	private BeanFactory() {}

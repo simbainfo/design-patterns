@@ -6,21 +6,42 @@ package com.shuaihua.designpatterns.singleton.register;
  *
  */
 
-//枚举式单例
+//枚举注册式单例
 public enum RegisterEnum {
 
-	RED(){
-	       private int r = 255;
-	       private int g = 0;
-	       private int b = 0;
+	RED(255,0,0),BLACK(0,0,0),WHITE(255,255,255);
+	
+	private int r;
+	private int g;
+	private int b;
+	
+	private RegisterEnum(int r, int g, int b) {
+		this.r = r;
+		this.g = g;
+		this.b = b;
+	}
 
-	},BLACK(){
-	        private int r = 0;
-	        private int g = 0;
-	        private int b = 0;
-	},WHITE(){
-	        private int r = 255;
-	        private int g = 255;
-	        private int b = 255;
-	};
+	public int getR() {
+		return r;
+	}
+
+	public void setR(int r) {
+		this.r = r;
+	}
+
+	public int getG() {
+		return g;
+	}
+
+	public void setG(int g) {
+		this.g = g;
+	}
+
+	public int getB() {
+		return b;
+	}
+
+	public void setB(int b) {
+		this.b = b;
+	}
 }
