@@ -28,4 +28,5 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile group: 'cglib', name: 'cglib', version: '3.3.0'
 }
