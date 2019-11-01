@@ -1,6 +1,8 @@
 package com.shuaihua.designpatterns.proxy.custom;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -17,7 +19,7 @@ import javax.tools.ToolProvider;
  * @author shuaihua
  *
  */
-public class CustomProxy {
+public class CustomProxy extends ClassLoader{
 	
 	private final static String LN = "\r\n";
 
@@ -43,7 +45,21 @@ public class CustomProxy {
         manage.close();
 		
 		//4.把编译生成的.class文件加载的jvm中
-        Class<?> proxyClass = loader.loadClass("$Proxy0");
+//        Class<?> proxyClass = len.loadClass("$Proxy0");
+        FileInputStream in = new FileInputStream(path + "$Proxy0.class");
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        
+        byte[] buff = new byte[1024];
+        int len;
+        
+        while ((len=in.read(buff)) != -1) {
+			out.write(buff,0,len);
+		}
+        
+        
+        defineClass
+        
+        
         Constructor<?> constructor = proxyClass.getConstructor(InvocationHandler.class);
         
 		
@@ -82,5 +98,10 @@ public class CustomProxy {
 		
 		
 		return sb.toString();
+	}
+	
+	@Override
+	private Class<?> defineClass(String name,byte[] b,int off,int len){
+		
 	}
 }
